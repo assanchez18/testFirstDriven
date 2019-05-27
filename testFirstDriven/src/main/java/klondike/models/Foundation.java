@@ -1,12 +1,14 @@
 package klondike.models;
 
-public class Foundation extends CardStack {
+import java.util.Stack;
+
+public class Foundation {
 
     private Suit suit;
-
+    private Stack<Card> cards;
     public Foundation(Suit suit) {
-        super();
-        this.suit = suit;
+    	this.cards = new Stack<Card>();
+    	this.suit = suit;
     }
 
     public boolean isComplete() {
@@ -22,5 +24,22 @@ public class Foundation extends CardStack {
 
     public Suit getSuit() {
         return this.suit;
+    }
+
+    public boolean empty() {
+        return this.cards.empty();
+    }
+
+    public Card peek() {
+        return this.cards.peek();
+    }
+
+    public Card pop() {
+        return this.cards.pop();
+    }
+
+    public void push(Card card) {
+    	assert card != null;
+        this.cards.push(card);
     }
 }
