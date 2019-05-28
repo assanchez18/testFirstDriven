@@ -22,6 +22,7 @@ public class Card {
     }
 
     public boolean isNextTo(Card card) {
+    	assert card != null;
         return (this.getNumber().getValue() - 1) == card.getNumber().getValue();
     }
 
