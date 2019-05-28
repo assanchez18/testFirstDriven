@@ -130,11 +130,11 @@ public class Game {
             return Error.SAME_PILE;
         }
         Pile originPile = this.piles.get(originIndex);
-        Pile destinationPile = this.piles.get(destinationIndex);
         if (originPile.numberOfFaceUpCards() < numberOfCards) {
             return Error.NO_ENOUGH_CARDS_PILE;
         }
         List<Card> cards = originPile.getTop(numberOfCards);
+        Pile destinationPile = this.piles.get(destinationIndex);
         if (!destinationPile.fitsIn(cards.get(cards.size() - 1))) {
             return Error.NO_FIT_PILE;
         }
