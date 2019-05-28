@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Pile implements IStack {
+public class Pile {
 
 	private final int number;
 	

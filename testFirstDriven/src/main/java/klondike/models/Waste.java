@@ -2,7 +2,7 @@ package klondike.models;
 
 import java.util.Stack;
 
-public class Waste implements IStack {
+public class Waste {
 	
 	private Stack<Card> cards;
 	
