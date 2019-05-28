@@ -2,7 +2,7 @@ package klondike.models;
 
 import java.util.Stack;
 
-public class Foundation {
+public class Foundation implements IStack {
 
     private Suit suit;
     private Stack<Card> cards;

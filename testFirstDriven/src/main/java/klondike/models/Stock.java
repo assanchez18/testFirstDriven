@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
-public class Stock {
+public class Stock implements IStack {
 
 	private Stack<Card> cards;
 	
