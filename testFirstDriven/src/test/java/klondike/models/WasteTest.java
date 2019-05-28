@@ -27,14 +27,14 @@ public class WasteTest {
 	@Test
 	public void testEmptyWithEmpty() {
 		Waste waste = this.createWaste();
-		assertTrue(waste.empty());
+		assertTrue(waste.isEmpty());
 	}
 	
 	@Test
 	public void testEmptyWithNotEmpty() {
 		Waste waste = this.createWaste();
 		waste.push(this.getCards().get(0));
-		assertFalse(waste.empty());
+		assertFalse(waste.isEmpty());
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class WasteTest {
 		Waste waste = this.createWaste();
 		waste.push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), waste.pop());
-		assertTrue(waste.empty());
+		assertTrue(waste.isEmpty());
 	}
 	
 	@Test

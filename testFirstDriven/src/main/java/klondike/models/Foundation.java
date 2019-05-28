@@ -19,14 +19,14 @@ public class Foundation {
         assert card != null;
         return card.getSuit() == this.suit &&
                 (card.getNumber() == Number.AS ||
-                        (!this.empty() && card.isNextTo(this.peek())));
+                        (!this.isEmpty() && card.isNextTo(this.peek())));
     }
 
     public Suit getSuit() {
         return this.suit;
     }
 
-    public boolean empty() {
+    public boolean isEmpty() {
         return this.cards.empty();
     }
 

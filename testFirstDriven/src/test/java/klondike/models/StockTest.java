@@ -72,7 +72,7 @@ public class StockTest {
 		Stock stock = new Stock();
 		List<Card> cardList = stock.takeTop(StockTest.NUMBER_CARDS);
 		assertEquals(StockTest.NUMBER_CARDS, cardList.size());
-		assertTrue(stock.empty());
+		assertTrue(stock.isEmpty());
 	}
 	
 
@@ -86,14 +86,14 @@ public class StockTest {
 	@Test
 	public void testEmptyWithEmpty() {
 		Stock stock = this.createCardStack();
-		assertTrue(stock.empty());
+		assertTrue(stock.isEmpty());
 	}
 	
 	@Test
 	public void testEmptyWithNotEmpty() {
 		Stock stock = this.createCardStack();
 		stock.push(this.getCards().get(0));
-		assertFalse(stock.empty());
+		assertFalse(stock.isEmpty());
 	}
 
 	@Test
@@ -116,7 +116,7 @@ public class StockTest {
 		Stock stock = this.createCardStack();
 		stock.push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), stock.pop());
-		assertTrue(stock.empty());
+		assertTrue(stock.isEmpty());
 	}
 	
 	@Test

@@ -25,13 +25,13 @@ public class GameTest {
 	}
 
 	private void testWasteClear(Game game) {
-		assertTrue(game.getWaste().empty());
+		assertTrue(game.getWaste().isEmpty());
 	}
 
 	private void testFoundationsClear(Game game) {
 		Map<Suit, Foundation> foundations = game.getFoundations();
 		for (Suit suit : Suit.values()) {
-			assertTrue(foundations.get(suit).empty());
+			assertTrue(foundations.get(suit).isEmpty());
 		}
 	}
 
@@ -44,7 +44,7 @@ public class GameTest {
 				pile.removeTop(1);
 				assertTrue(card.isFacedUp());
 			}
-			assertTrue(pile.empty());
+			assertTrue(pile.isEmpty());
 		}
 	}
 
@@ -55,7 +55,7 @@ public class GameTest {
 			Card card = stock.pop();
 			assertFalse(card.isFacedUp());
 		}
-		assertTrue(stock.empty());
+		assertTrue(stock.isEmpty());
 	}
 
 	private int cardsInStock(Game game) {
@@ -90,7 +90,7 @@ public class GameTest {
 
 	private void setEmptyStock(Game game) {
 		Stock stock = game.getStock();
-		while (!stock.empty()) {
+		while (!stock.isEmpty()) {
 			stock.pop();
 		}
 	}
@@ -101,7 +101,7 @@ public class GameTest {
 		Card card = this.setWaste(game, Number.AS);
 		assertEquals(null, game.moveFromWasteToFoundation(card.getSuit()));
 		assertEquals(card, game.getFoundations().get(card.getSuit()).peek());
-		assertTrue(game.getWaste().empty());
+		assertTrue(game.getWaste().isEmpty());
 	}
 
 	private Card setWaste(Game game, Number number) {
@@ -115,8 +115,8 @@ public class GameTest {
 		Game game = new Game();
 		Suit suit = Suit.PIKES;
 		assertEquals(Error.EMPTY_WASTE, game.moveFromWasteToFoundation(suit));
-		assertTrue(game.getWaste().empty());
-		assertTrue(game.getFoundations().get(suit).empty());
+		assertTrue(game.getWaste().isEmpty());
+		assertTrue(game.getFoundations().get(suit).isEmpty());
 	}
 
 	@Test
@@ -125,7 +125,7 @@ public class GameTest {
 		Card card = this.setWaste(game, Number.FIVE);
 		assertEquals(Error.NO_FIT_FOUNDATION, game.moveFromWasteToFoundation(card.getSuit()));
 		assertEquals(card, game.getWaste().peek());
-		assertTrue(game.getFoundations().get(card.getSuit()).empty());
+		assertTrue(game.getFoundations().get(card.getSuit()).isEmpty());
 	}
 
 	@Test
@@ -135,7 +135,7 @@ public class GameTest {
 		this.setEmptyPile(game, 0);
 		assertEquals(null, game.moveFromWasteToPile(0));
 		assertEquals(card, game.getPiles().get(0).peek());
-		assertTrue(game.getWaste().empty());
+		assertTrue(game.getWaste().isEmpty());
 	}
 
 	@Test
@@ -144,7 +144,7 @@ public class GameTest {
 		Card card = game.getPiles().get(0).peek();
 		assertEquals(Error.EMPTY_WASTE, game.moveFromWasteToPile(0));
 		assertEquals(card, game.getPiles().get(0).peek());
-		assertTrue(game.getWaste().empty());
+		assertTrue(game.getWaste().isEmpty());
 	}
 
 	@Test
@@ -153,7 +153,7 @@ public class GameTest {
 		Card card = this.setWaste(game, Number.SEVEN);
 		this.setEmptyPile(game, 0);
 		assertEquals(Error.NO_FIT_PILE, game.moveFromWasteToPile(0));
-		assertTrue(game.getPiles().get(0).empty());
+		assertTrue(game.getPiles().get(0).isEmpty());
 		assertEquals(card, game.getWaste().peek());
 	}
 
@@ -168,12 +168,12 @@ public class GameTest {
 		Card card = this.setPile(game, 0, Number.AS, suit);
 		assertEquals(null, game.moveFromPileToFoundation(0,suit ));
 		assertEquals(card, game.getFoundations().get(card.getSuit()).peek());
-		assertTrue(game.getWaste().empty());
+		assertTrue(game.getWaste().isEmpty());
 	}
 
 	private Card setPile(Game game, int position, Number number, Suit suit) {
 		Pile pile = game.getPiles().get(position);
-		while (!pile.empty()) {
+		while (!pile.isEmpty()) {
 			pile.pop();
 		}
 		int ordinalNumber = Number.values().length - 1;

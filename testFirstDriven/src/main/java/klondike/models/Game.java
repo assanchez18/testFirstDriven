@@ -41,7 +41,7 @@ public class Game {
     }
 
     public Error moveFromStockToWaste() {
-        if (this.stock.empty()) {
+        if (this.stock.isEmpty()) {
             return Error.EMPTY_STOCK;
         }
         this.waste.push(this.stock.pop().flip());
@@ -50,7 +50,7 @@ public class Game {
 
     public Error moveFromWasteToFoundation(Suit suit) {
         assert suit != null;
-        if (this.waste.empty()) {
+        if (this.waste.isEmpty()) {
             return Error.EMPTY_WASTE;
         }
         Card card = this.waste.peek();
@@ -63,13 +63,13 @@ public class Game {
     }
 
     public Error moveFromWasteToStock() {
-        if (!this.stock.empty()) {
+        if (!this.stock.isEmpty()) {
             return Error.NO_EMPTY_STOCK;
         }
-        if (this.waste.empty()) {
+        if (this.waste.isEmpty()) {
             return Error.EMPTY_WASTE;
         }
-        while (!this.waste.empty()) {
+        while (!this.waste.isEmpty()) {
             this.stock.push(this.waste.pop().flip());
         }
         return null;
@@ -77,7 +77,7 @@ public class Game {
 
     public Error moveFromWasteToPile(int pileIndex) {
         assert (0 <= pileIndex) && (pileIndex <= Game.NUMBER_OF_PILES);
-        if (this.waste.empty()) {
+        if (this.waste.isEmpty()) {
             return Error.EMPTY_WASTE;
         }
         Card card = this.waste.peek();
@@ -94,7 +94,7 @@ public class Game {
         assert (0 <= pileIndex) && (pileIndex <= Game.NUMBER_OF_PILES);
         Foundation foundation = this.foundations.get(suit);
         Pile pile = this.piles.get(pileIndex);
-        if (foundation.empty()) {
+        if (foundation.isEmpty()) {
             return Error.EMPTY_FOUNDATION;
         }
         Card card = foundation.peek();
@@ -110,7 +110,7 @@ public class Game {
         assert suit != null;
         Pile pile = this.piles.get(pileIndex);
         Foundation foundation = this.foundations.get(suit);
-        if (pile.empty()) {
+        if (pile.isEmpty()) {
             return Error.EMPTY_PILE;
         }
         Card card = pile.getTop(1).get(0);

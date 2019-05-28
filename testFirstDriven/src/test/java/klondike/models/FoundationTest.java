@@ -85,14 +85,14 @@ public class FoundationTest {
 	@Test
 	public void testEmptyWithEmpty() {
 		Foundation foundation = this.createCardStack();
-		assertTrue(foundation.empty());
+		assertTrue(foundation.isEmpty());
 	}
 	
 	@Test
 	public void testEmptyWithNotEmpty() {
 		Foundation foundation = this.createCardStack();
 		foundation.push(this.getCards().get(0));
-		assertFalse(foundation.empty());
+		assertFalse(foundation.isEmpty());
 	}
 
 	@Test
@@ -115,7 +115,7 @@ public class FoundationTest {
 		Foundation foundation = this.createCardStack();
 		foundation.push(this.getCards().get(0));
 		assertEquals(this.getCards().get(0), foundation.pop());
-		assertTrue(foundation.empty());
+		assertTrue(foundation.isEmpty());
 	}
 	
 	@Test

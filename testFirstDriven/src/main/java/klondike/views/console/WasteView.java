@@ -13,7 +13,7 @@ public class WasteView {
 
     public void writeln() {
         IO.write(Message.WASTE_TITLE);
-        if (this.waste.empty()) {
+        if (this.waste.isEmpty()) {
             IO.writeln(Message.EMPTY);
         } else {
             new CardView(this.waste.peek()).writeln();

@@ -26,7 +26,7 @@ public class Stock {
         return cardsToReturn;
     }
 
-    public boolean empty() {
+    public boolean isEmpty() {
         return this.cards.empty();
     }
 
