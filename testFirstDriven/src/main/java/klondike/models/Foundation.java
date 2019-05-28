@@ -10,22 +10,7 @@ public class Foundation {
     	this.cards = new Stack<Card>();
     	this.suit = suit;
     }
-
-    public boolean isComplete() {
-        return this.cards.size() == Number.values().length;
-    }
-
-    public boolean fitsIn(Card card) {
-        assert card != null;
-        return card.getSuit() == this.suit &&
-                (card.getNumber() == Number.AS ||
-                        (!this.isEmpty() && card.isNextTo(this.peek())));
-    }
-
-    public Suit getSuit() {
-        return this.suit;
-    }
-
+    
     public boolean isEmpty() {
         return this.cards.empty();
     }
@@ -42,4 +27,20 @@ public class Foundation {
     	assert card != null;
         this.cards.push(card);
     }
+    
+    public boolean isComplete() {
+        return this.cards.size() == Number.values().length;
+    }
+
+    public boolean fitsIn(Card card) {
+        assert card != null;
+        return card.getSuit() == this.suit &&
+                (card.getNumber() == Number.AS ||
+                        (!this.isEmpty() && card.isNextTo(this.peek())));
+    }
+
+    public Suit getSuit() {
+        return this.suit;
+    }
+
 }

@@ -19,13 +19,6 @@ public class Stock {
         Collections.shuffle(this.cards);
     }
 
-    public List<Card> takeTop(int quantity) {
-        assert 0 < quantity && quantity <= this.cards.size();
-        List<Card> cardsToReturn = new ArrayList<Card>(this.cards.subList(0, quantity));
-        this.cards.removeAll(cardsToReturn);
-        return cardsToReturn;
-    }
-
     public boolean isEmpty() {
         return this.cards.empty();
     }
@@ -42,5 +35,14 @@ public class Stock {
     	assert card != null;
         this.cards.push(card);
     }
+    
+    public List<Card> takeTop(int quantity) {
+        assert 0 < quantity && quantity <= this.cards.size();
+        List<Card> cardsToReturn = new ArrayList<Card>(this.cards.subList(0, quantity));
+        this.cards.removeAll(cardsToReturn);
+        return cardsToReturn;
+    }
+
+
 
 }

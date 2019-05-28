@@ -20,15 +20,23 @@ public class Pile {
 		this.flipFirstCard();
 	}
 
+	public boolean isEmpty() {
+		return this.cards.empty();
+	}
+	
+    public Card peek() {
+        return this.cards.peek();
+    }
+
+    public Card pop() {
+		this.numberOfFaceUpCards--;
+		return this.cards.pop();
+	}
+
 	public void push(Card card) {
 		assert this.fitsIn(card);
 		this.cards.push(card);
 		this.numberOfFaceUpCards++;
-	}
-
-	public Card pop() {
-		this.numberOfFaceUpCards--;
-		return this.cards.pop();
 	}
 
 	private void flipFirstCard() {
@@ -69,10 +77,6 @@ public class Pile {
 		return this.numberOfFaceUpCards;
 	}
 
-	public boolean isEmpty() {
-		return this.cards.empty();
-	}
-
 	public Stack<Card> getCards() {
 		return this.cards;
 	}
@@ -81,8 +85,6 @@ public class Pile {
 		return this.number;
 	}
 	
-    public Card peek() {
-        return this.cards.peek();
-    }
+
 
 }
