@@ -109,11 +109,11 @@ public class Game {
         assert (0 <= pileIndex) && (pileIndex <= Game.NUMBER_OF_PILES);
         assert suit != null;
         Pile pile = this.piles.get(pileIndex);
-        Foundation foundation = this.foundations.get(suit);
         if (pile.isEmpty()) {
             return Error.EMPTY_PILE;
         }
         Card card = pile.getTop(1).get(0);
+        Foundation foundation = this.foundations.get(suit);
         if (!foundation.fitsIn(card)) {
             return Error.NO_FIT_FOUNDATION;
         }
